@@ -1,4 +1,3 @@
-import org.assertj.core.api.Assertions;
 import org.junit.*;
 import tennis.game.Player;
 
@@ -12,7 +11,7 @@ public class TennisGameTest
 
   @Before
   public void setUp(){
-    game=new TennisGame(player1.getName(),player2.getName());
+    game=new TennisGame();
   }
 
   @Test
@@ -84,7 +83,11 @@ public class TennisGameTest
 
     game.wonPoint(player2.getName());
 
-    assertThat(game.getScore()).isEqualTo("Win for player2");
+    assertThat(game.getScore()).isEqualTo("Deuce");
+
+    game.wonPoint(player1.getName());
+
+    assertThat(game.getScore()).isEqualTo("Advantage player1");
   }
 
 
